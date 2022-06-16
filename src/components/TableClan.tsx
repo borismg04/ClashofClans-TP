@@ -52,19 +52,16 @@ const TableClan = () => {
     <>
       <div>
         <input
-          className=' form-control-lg'
+          className=' form-control-lg mb-4 bg-white w-50 center'
           type="text"
           value={search}
           placeholder="Search...(Clans Name or Tag Name or Level Clan)"
           onChange={handleSearch}
           />
 
-        <button className="btn btn-succes" >
-          <FontAwesomeIcon icon={faSearch} />
-        </button>
       </div>
 
-      <div className='table-responsive'>
+      <div className='table-responsive shadow-lg p-3 mb-5 bg-body rounded'>
         <table className='table table-sm table-bordered'>
           <thead>
             <th>Tag</th>
