@@ -3,13 +3,13 @@ import { ReactNode } from 'react';
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BadgeUrls ,ClansOfClan,IconUrls,Item,Label,Location,WarLeague,map } from "./Types";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { BadgeUrls ,ClansOfClan,IconUrls,Item,Label,Location,WarLeague,map } from "./Types";
 
 const FormularioClan = () => {
 
-  const [clanes, setClanes] = useState([]);
+  const [clanes, setClanes] =useState<ClansOfClan>({items:[]});
   const [tablaClanes, setTablaClanes] = useState([]);
   const [busqueda, setBusqueda] = useState('');
 
@@ -58,26 +58,24 @@ const FormularioClan = () => {
           <thead>
             <th>Tag</th>
             <th>Clan Name</th>
-            <th>Badge</th>
+            {/* <th>Badge</th>
             <th>Level Clan</th>
             <th>Frequency War</th>
-            <th>Wins</th>
+            <th>Wins</th> */}
           </thead>
 
           <tbody>
-            {/* {clanes && clanes.map(clan=>{
-              return(
+            {clanes && clanes.map(clan=>{
                 <tr key={clan.items.tag}>
                   <td>{clan.items.tag}</td>
                   <td>{clan.items.name}</td>
-                  <td><img src={clan.items.badgeUrls} alt='badge'></img></td>
-                  <td>{clan.items.clanLevel}</td>
-                  <td>{clan.items.warFrequency}</td>
-                  <td>{clan.items.warsWins}</td>
+                  {/* <td><img src={clan.badgeUrls} alt='badge'></img></td>
+                  <td>{clan.clanLevel}</td>
+                  <td>{clan.warFrequency}</td>
+                  <td>{clan.warsWins}</td> */}
                 </tr>
-              )
             }
-            )} */}
+            )}
           </tbody>
         </table>
       </div>
