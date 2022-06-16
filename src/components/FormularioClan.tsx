@@ -42,11 +42,11 @@ const FormularioClan = () => {
   return (
     <>
       <div>
-        <input 
-          type="text" 
+        <input
+          type="text"
           value={busqueda}
-          placeholder="Buscar..." 
-          onChange={(e) => setBusqueda(e.target.value)} 
+          placeholder="Buscar..."
+          onChange={(e) => setBusqueda(e.target.value)}
           />
 
         <button className="btn btn-succes">
