@@ -15,8 +15,6 @@ app.get('/', (req, res) => {
 
   let url=""
 
-
-
   const { tag,name,warFrequency } = req.query;
 
   if(tag){
@@ -28,7 +26,6 @@ app.get('/', (req, res) => {
   if(warFrequency){
     url = `${process.env.REACT_BASE_CLASH_OF_CLANS}?warFrequency=${warFrequency}`;
   }
-
 
   const options = {
     method: 'GET',

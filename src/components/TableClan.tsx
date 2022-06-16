@@ -12,13 +12,20 @@ const TableClan = () => {
   const [tableClans, setTableClans] = useState([]);
   const [search, setSearch] = useState('');
 
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+    filteredClans(e.target.value);
+    console.log("Busqueda: "+e.target.value);
+    console.log("Filtro: ",filteredClans(e.target.value));
+  }
 
   useEffect(()=>{
 
     const options = {
       method: 'GET',
-      url: `http://localhost:8080/?name=${setSearch}`,
+      url: `http://localhost:8080/?name=boris`,
     }
+    console.log('handleSearch:', handleSearch)
 
     axios.request(options).then(res=>{
       console.log(res.data);
@@ -29,58 +36,17 @@ const TableClan = () => {
       })
   },[])
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value);
-    filteredClans(e.target.value);
-    console.log("Busqueda: "+e.target.value);
-    console.log("Filtro: ",filteredClans(e.target.value));
-
-  }
-
-  // const filteredClans = (searchFilter: string) => {
-  //   let resultSearch = clans.items.filter((clan: Item) => {
-  //     if(clan.name.toLowerCase().includes(searchFilter.toLowerCase())
-  //     || clan.tag.toLowerCase().includes(searchFilter.toLowerCase())
-  //     || clan.warFrequency.toLowerCase().includes(searchFilter.toLowerCase())
-  //     ){
-  //       return clan;
-  //     }
-  //   });
-  //   return resultSearch;
-  // }
-
   const filteredClans = (searchFilter: string) => {
-    switch (searchFilter) {
-      case 'name':
-        let resultSearch = clans.items.filter((clan: Item) => {
-          if(clan.name.toLowerCase().includes(searchFilter.toLowerCase())
-          ){
-            return clan;
-          }
-        });
-        return resultSearch;
-      case 'tag':
-        let resultSearchTag = clans.items.filter((clan: Item) => {
-          if(clan.tag.toLowerCase().includes(searchFilter.toLowerCase())
-          ){
-            return clan;
-          }
-        });
-        return resultSearchTag;
-      case 'warFrequency':
-        let resultSearchWarFrequency = clans.items.filter((clan: Item) => {
-          if(clan.warFrequency.toLowerCase().includes(searchFilter.toLowerCase())
-          ){
-            return clan;
-          }
-        });
-        return resultSearchWarFrequency;
-      default:
-        return clans.items;
-    }
+    let resultSearch = clans.items.filter((clan: Item) => {
+      if(clan.name.toLowerCase().includes(searchFilter.toLowerCase())
+      || clan.tag.toLowerCase().includes(searchFilter.toLowerCase())
+      || clan.warFrequency.toLowerCase().includes(searchFilter.toLowerCase())
+      ){
+        return clan;
+      }
+    });
+    return resultSearch;
   }
-
-
 
   return (
     <>
