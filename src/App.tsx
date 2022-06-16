@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import {useEffect,useState} from 'react'
 import axios from 'axios';
-import FormularioClan from './components/FormularioClan';
+import TableClan from './components/TableClan';
 
 function App() {
 
@@ -25,14 +25,10 @@ function App() {
 
   return (
     <div className="App">
-      <div>
-        <button className="btn btn-primary">CLASH OF CLANS</button>
-      </div>
 
       <div>
-        <FormularioClan/>
+        <TableClan/>
       </div>
-
 
     </div>
   );

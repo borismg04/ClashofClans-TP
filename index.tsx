@@ -9,10 +9,30 @@ const app = express();
 
 app.use(cors());
 
+
+
 app.get('/', (req, res) => {
+
+  let url=""
+
+
+
+  const { tag,name,warFrequency } = req.query;
+
+  if(tag){
+    url = `${process.env.REACT_BASE_CLASH_OF_CLANS}?tag=${tag}`;
+  }
+  if(name){
+    url = `${process.env.REACT_BASE_CLASH_OF_CLANS}?name=${name}`;
+  }
+  if(warFrequency){
+    url = `${process.env.REACT_BASE_CLASH_OF_CLANS}?warFrequency=${warFrequency}`;
+  }
+
+
   const options = {
     method: 'GET',
-    url: `${process.env.REACT_BASE_CLASH_OF_CLANS}?name=guard`,
+    url,
     headers: {
       Accept: 'application/json',
       Authorization: `Bearer ${process.env.REACT_KEY_CLASH_OF_CLANS}`,
