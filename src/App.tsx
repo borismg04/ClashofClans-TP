@@ -23,9 +23,6 @@ function App() {
       })
   },[])
 
-  console.log(process.env.REACT_BASE_CLASH_OF_CLANS);
-
-
   return (
     <div className="App">
       <button className="btn btn-primary">Primary</button>
