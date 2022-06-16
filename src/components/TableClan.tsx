@@ -9,8 +9,9 @@ import { BadgeUrls ,ClansOfClan,IconUrls,Item,Label,Location,WarLeague,map } fro
 const TableClan = () => {
 
   const [clans, setClans] =useState<ClansOfClan>({items:[]});
-  const [tableClans, setTablaClans] = useState([]);
+  const [tableClans, setTableClans] = useState([]);
   const [search, setSearch] = useState('');
+
 
   useEffect(()=>{
 
@@ -22,7 +23,7 @@ const TableClan = () => {
     axios.request(options).then(res=>{
       console.log(res.data);
       setClans({items:res.data.items});
-      setTablaClans(res.data);
+      setTableClans(res.data.items);
       }).catch(err=>{
         console.log(err);
       })
@@ -36,17 +37,50 @@ const TableClan = () => {
 
   }
 
+  // const filteredClans = (searchFilter: string) => {
+  //   let resultSearch = clans.items.filter((clan: Item) => {
+  //     if(clan.name.toLowerCase().includes(searchFilter.toLowerCase())
+  //     || clan.tag.toLowerCase().includes(searchFilter.toLowerCase())
+  //     || clan.warFrequency.toLowerCase().includes(searchFilter.toLowerCase())
+  //     ){
+  //       return clan;
+  //     }
+  //   });
+  //   return resultSearch;
+  // }
+
   const filteredClans = (searchFilter: string) => {
-    let resultSearch = clans.items.filter((clan: Item) => {
-      if(clan.name.toLowerCase().includes(searchFilter.toLowerCase())
-      || clan.tag.toLowerCase().includes(searchFilter.toLowerCase())
-      || clan.warFrequency.toLowerCase().includes(searchFilter.toLowerCase())
-      ){
-        return clan;
-      }
-    });
-    return resultSearch;
+    switch (searchFilter) {
+      case 'name':
+        let resultSearch = clans.items.filter((clan: Item) => {
+          if(clan.name.toLowerCase().includes(searchFilter.toLowerCase())
+          ){
+            return clan;
+          }
+        });
+        return resultSearch;
+      case 'tag':
+        let resultSearchTag = clans.items.filter((clan: Item) => {
+          if(clan.tag.toLowerCase().includes(searchFilter.toLowerCase())
+          ){
+            return clan;
+          }
+        });
+        return resultSearchTag;
+      case 'warFrequency':
+        let resultSearchWarFrequency = clans.items.filter((clan: Item) => {
+          if(clan.warFrequency.toLowerCase().includes(searchFilter.toLowerCase())
+          ){
+            return clan;
+          }
+        });
+        return resultSearchWarFrequency;
+      default:
+        return clans.items;
+    }
   }
+
+
 
   return (
     <>
@@ -55,7 +89,7 @@ const TableClan = () => {
           className=' form-control-lg'
           type="text"
           value={search}
-          placeholder="Search...(Clans Name or Tag Name or Frequency War)"
+          placeholder="Search...(Clans Name or Tag Name or Level Clan)"
           onChange={handleSearch}
           />
 
@@ -63,6 +97,7 @@ const TableClan = () => {
           <FontAwesomeIcon icon={faSearch} />
         </button>
       </div>
+
       <div className='table-responsive'>
         <table className='table table-sm table-bordered'>
           <thead>
