@@ -1,46 +1,41 @@
-# Getting Started with Create React App
+# API Clash of Clans
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Para correr esta aplicacion primero se debera seguir los siguientes pasos 🚀
 
-## Available Scripts
+### `npm install`
+### `npm run start:backend`
+### `npm run start:frontend`
 
-In the project directory, you can run:
+Cuando ya se haya cargado toda la aplicación 
 
-### `npm start`
+# Empieza a Disfrutar y Stalkear tus enemigos 🕵️ 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Escoge ( Name || Tag || War Frequency )
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Selecciona una opción.
 
-### `npm test`
+# Ejemplo
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![image](https://user-images.githubusercontent.com/77166287/174341100-9635556b-676c-4fba-93ac-4afadb21fb71.png)
 
-### `npm run build`
+Escoge cualquier opción 🧐.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![image](https://user-images.githubusercontent.com/77166287/174341501-354cdf9a-be33-4161-b8fb-f5ade2a6e09d.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Escribe a quien quieres saber información 🔍
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![image](https://user-images.githubusercontent.com/77166287/174340481-107c8e6e-d47d-4d0f-82e6-faf364d6f37c.png)
 
-### `npm run eject`
+![image](https://user-images.githubusercontent.com/77166287/174340622-a34e18f9-dd91-4fc0-9941-daf35f51a3ee.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# 🥳🎉!!!!! Tarannnnn !!!!! 🥳🎉
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Tienes toda informacion del clan que quieres saber información 🕵️.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![image](https://user-images.githubusercontent.com/77166287/174340227-a595fc81-6b76-421a-ae9a-3580c0df2757.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+
+
