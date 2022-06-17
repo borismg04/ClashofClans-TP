@@ -9,11 +9,9 @@ const app = express();
 
 app.use(cors());
 
-
-
 app.get('/', (req, res) => {
 
-  let url=""
+  let url=process.env.REACT_BASE_CLASH_OF_CLANS;
 
   const { tag,name,warFrequency } = req.query;
 
@@ -28,6 +26,7 @@ app.get('/', (req, res) => {
   }
 
   const options = {
+
     method: 'GET',
     url,
     headers: {
@@ -35,6 +34,7 @@ app.get('/', (req, res) => {
       Authorization: `Bearer ${process.env.REACT_KEY_CLASH_OF_CLANS}`,
     }
   };
+  // console.log("Prueba ",req.params.query);
 
   axios.request(options).then((response) => {
       res.json(response.data);

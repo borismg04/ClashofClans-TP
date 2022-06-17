@@ -10,61 +10,75 @@ const TableClan = () => {
 
   const [clans, setClans] =useState<ClansOfClan>({items:[]});
   const [tableClans, setTableClans] = useState([]);
-  const [search, setSearch] = useState('');
-
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value);
-    filteredClans(e.target.value);
-    console.log("Busqueda: "+e.target.value);
-    console.log("Filtro: ",filteredClans(e.target.value));
-  }
+  const [search, setSearch] = useState({filteredBy:"name",value:""});
 
   useEffect(()=>{
 
+    let url= `http://localhost:8080/?${search.filteredBy}=${search.value}`;
+
+    if(search.value == ""){
+      url = `http://localhost:8080/`;
+    }
+
     const options = {
       method: 'GET',
-      url: `http://localhost:8080/?name=boris`,
+      url,
     }
-    console.log('handleSearch:', handleSearch)
-
     axios.request(options).then(res=>{
-      console.log(res.data);
+      console.log("Prueba",res.data);
       setClans({items:res.data.items});
       setTableClans(res.data.items);
-      }).catch(err=>{
-        console.log(err);
-      })
-  },[])
+      console.log('setTableClans:', setTableClans)
 
-  const filteredClans = (searchFilter: string) => {
-    let resultSearch = clans.items.filter((clan: Item) => {
-      if(clan.name.toLowerCase().includes(searchFilter.toLowerCase())
-      || clan.tag.toLowerCase().includes(searchFilter.toLowerCase())
-      || clan.warFrequency.toLowerCase().includes(searchFilter.toLowerCase())
-      ){
-        return clan;
-      }
-    });
-    return resultSearch;
+    }).catch(err=>{
+      console.log(err);
+    })
+  },[ search.value ])
+
+  // const filteredClans = (searchFilter: string) => {
+  //   let resultSearch = clans.items.filter((clan: Item) => {
+  //     if(clan.name.toLowerCase().includes(searchFilter.toLowerCase())
+  //     || clan.tag.toLowerCase().includes(searchFilter.toLowerCase())
+  //     || clan.warFrequency.toLowerCase().includes(searchFilter.toLowerCase())
+  //     ){
+  //       return clan;
+  //     }
+  //   });
+  //   return resultSearch;
+  // }
+
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch({...search,value:e.target.value});
+    // filteredClans(e.target.value);
+    console.log("Busqueda: "+e.target.value);
   }
 
   return (
     <>
       <div>
+        <select
+          value={search.filteredBy}
+          onChange={(e) => {
+            setSearch({ ...search, filteredBy: e.target.value });
+          }}
+        >
+          <option value="name">Name</option>
+          <option value="tag">Tag</option>
+          <option value="warFrequency">Frequency War</option>
+        </select>
         <input
           className=' form-control-lg mb-4 bg-white w-50 center'
           type="text"
-          value={search}
-          placeholder="Search...(Clans Name or Tag Name or Level Clan)"
+          value={search.value}
+          placeholder="Search...(Clans Name or Tag Name or War Frequency)"
           onChange={handleSearch}
           />
-
       </div>
 
       <div className='table-responsive shadow-lg p-3 mb-5 bg-body rounded'>
         <table className='table table-sm table-bordered'>
           <thead>
-            <th>Tag</th>
+            <th>After</th>
             <th>Badge</th>
             <th>Clan Name</th>
             <th>Level Clan</th>
