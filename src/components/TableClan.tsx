@@ -39,7 +39,10 @@ const TableClan = () => {
     <>
       <div>
         <div>
-
+          <img
+            className="max-width:20% height:auto;"
+            src={images.freeInfo}
+            alt="logo" />
         </div>
 
           <select
@@ -66,11 +69,11 @@ const TableClan = () => {
       <div className='table-responsive shadow-lg p-3 mb-5 bg-body rounded'>
         <table className='table table-sm table-bordered'>
           <thead>
-            <th>After</th>
+            <th>Tag</th>
             <th>Badge</th>
             <th>Clan Name</th>
             <th>Level Clan</th>
-            <th>Frequency War</th>
+            <th>War Frequency</th>
             <th>Wins</th>
           </thead>
 
