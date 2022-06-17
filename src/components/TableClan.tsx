@@ -40,7 +40,7 @@ const TableClan = () => {
       <div>
         <div>
           <img
-            className="max-width:20% height:auto;"
+            className="max-width:20% height:auto "
             src={images.freeInfo}
             alt="logo" />
         </div>
