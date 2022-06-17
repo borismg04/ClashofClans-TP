@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import "bootstrap/dist/css/bootstrap.min.css";
+import images from '../assests/images';
 import { ClansOfClan } from "./Types";
 
 const TableClan = () => {
@@ -38,11 +39,11 @@ const TableClan = () => {
     <>
       <div>
         <div>
-          <img src="../../public/free information.png" alt="logo_intro" />
+
         </div>
-        <div className='justify-content:center'>
+
           <select
-            className="form-select form-select-lg mb-3 w-50" aria-label=".form-select-lg example"
+            className="form-control-lg form-control-sm mb-4 w-30"
             value={search.filteredBy}
             onChange={(e) => {
               setSearch({ ...search, filteredBy: e.target.value });
@@ -52,7 +53,7 @@ const TableClan = () => {
             <option value="tag">Tag</option>
             <option value="warFrequency">Frequency War</option>
           </select>
-        </div>
+
         <input
           className=' form-control-lg mb-4 bg-white w-50 left'
           type="text"
