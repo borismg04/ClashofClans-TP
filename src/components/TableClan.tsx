@@ -2,9 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import "bootstrap/dist/css/bootstrap.min.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { BadgeUrls ,ClansOfClan,IconUrls,Item,Label,Location,WarLeague,map } from "./Types";
+import { ClansOfClan } from "./Types";
 
 const TableClan = () => {
 
@@ -25,11 +23,8 @@ const TableClan = () => {
       url,
     }
     axios.request(options).then(res=>{
-      console.log("Prueba",res.data);
       setClans({items:res.data.items});
       setTableClans(res.data.items);
-      console.log('setTableClans:', setTableClans)
-
     }).catch(err=>{
       console.log(err);
     })
@@ -49,8 +44,6 @@ const TableClan = () => {
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch({...search,value:e.target.value});
-    // filteredClans(e.target.value);
-    console.log("Busqueda: "+e.target.value);
   }
 
   return (

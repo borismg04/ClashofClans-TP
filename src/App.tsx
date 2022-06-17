@@ -6,23 +6,6 @@ import TableClan from './components/TableClan';
 
 function App() {
 
-  // const [clan,setClan] = useState([]);
-
-  // useEffect(()=>{
-
-  //   const options = {
-  //     method: 'GET',
-  //     url:'http://localhost:8080/',
-  //   }
-
-  //   axios.request(options).then(res=>{
-  //     console.log(res.data);
-  //     setClan(res.data);
-  //     }).catch(err=>{
-  //       console.log(err);
-  //     })
-  // },[])
-
   return (
     <div className="App">
 

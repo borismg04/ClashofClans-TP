@@ -34,7 +34,6 @@ app.get('/', (req, res) => {
       Authorization: `Bearer ${process.env.REACT_KEY_CLASH_OF_CLANS}`,
     }
   };
-  // console.log("Prueba ",req.params.query);
 
   axios.request(options).then((response) => {
       res.json(response.data);
@@ -43,7 +42,6 @@ app.get('/', (req, res) => {
       console.log(err);
     });
 });
-
 
 app.listen(PORT, () => {
   console.log(`🚀🚀 Server is running on port ${PORT} 🚀🚀`);
