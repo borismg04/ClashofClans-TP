@@ -30,18 +30,6 @@ const TableClan = () => {
     })
   },[ search.value ])
 
-  // const filteredClans = (searchFilter: string) => {
-  //   let resultSearch = clans.items.filter((clan: Item) => {
-  //     if(clan.name.toLowerCase().includes(searchFilter.toLowerCase())
-  //     || clan.tag.toLowerCase().includes(searchFilter.toLowerCase())
-  //     || clan.warFrequency.toLowerCase().includes(searchFilter.toLowerCase())
-  //     ){
-  //       return clan;
-  //     }
-  //   });
-  //   return resultSearch;
-  // }
-
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch({...search,value:e.target.value});
   }
@@ -49,18 +37,24 @@ const TableClan = () => {
   return (
     <>
       <div>
-        <select
-          value={search.filteredBy}
-          onChange={(e) => {
-            setSearch({ ...search, filteredBy: e.target.value });
-          }}
-        >
-          <option value="name">Name</option>
-          <option value="tag">Tag</option>
-          <option value="warFrequency">Frequency War</option>
-        </select>
+        <div>
+          <img src="../../public/free information.png" alt="logo_intro" />
+        </div>
+        <div className='justify-content:center'>
+          <select
+            className="form-select form-select-lg mb-3 w-50" aria-label=".form-select-lg example"
+            value={search.filteredBy}
+            onChange={(e) => {
+              setSearch({ ...search, filteredBy: e.target.value });
+            }}
+          >
+            <option value="name">Name</option>
+            <option value="tag">Tag</option>
+            <option value="warFrequency">Frequency War</option>
+          </select>
+        </div>
         <input
-          className=' form-control-lg mb-4 bg-white w-50 center'
+          className=' form-control-lg mb-4 bg-white w-50 left'
           type="text"
           value={search.value}
           placeholder="Search...(Clans Name or Tag Name or War Frequency)"
